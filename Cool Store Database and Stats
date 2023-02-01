@@ -1,0 +1,42 @@
+
+CREATE TABLE Cool_Store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, aisle INTEGER, color TEXT);
+
+INSERT INTO Cool_Store VALUES (1, "chunky sweater", 45, 1, "white");
+
+INSERT INTO Cool_Store VALUES (2, "platfrom boots", 100, 5, "black");
+
+INSERT INTO Cool_store VALUES(3, "sza vinyl", 30, 3, "green");
+
+INSERT INTO Cool_store VALUES (4, "dad shirt", 15, 4, "red");
+
+INSERT INTO Cool_store VALUES (5, "water bottle", 10, 6, "clear");
+
+INSERT INTO Cool_store VALUES (6, "bell bottom jeans", 10, 3, "blue");
+
+INSERT INTO Cool_store VALUES (7, "sunnies", 12, 4, "yellow");
+
+INSERT INTO Cool_store VALUES (8, "book", 5, 3, "brown");
+
+INSERT INTO Cool_store VALUES (9, "jacket", 75, 1, "orange");
+
+INSERT INTO Cool_store VALUES (10, "bag", 40, 10, "brown");
+
+INSERT INTO Cool_store VALUES (11, "gold earrings", 25, 12, "gold");
+
+INSERT INTO Cool_store VALUES (12, "hair clip", 5, 10, "emerald green");
+
+INSERT INTO Cool_store VALUES (13, "gold necklace", 15, 5, "gold");
+
+INSERT INTO Cool_store VALUES (14, "stipped socks", 5, 10, "yellow");
+
+INSERT INTO Cool_store VALUES (15, "iphone case", 20, 6, "clear");
+
+INSERT INTO Cool_store VALUES (16, "astrology journal", 17, 12, "gray");
+
+SELECT * FROM Cool_Store ORDER BY price; 
+
+SELECT AVG (price) FROM Cool_Store WHERE aisle="10"; 
+
+SELECT id, item, price FROM Cool_Store
+ORDER BY price desc 
+limit 7;
