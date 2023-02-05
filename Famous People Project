@@ -1,0 +1,208 @@
+/* Create a table of EGOT winners and the year they reached EGOT status*/
+
+CREATE table EGOT_Year (id INTEGER PRIMARY KEY, 
+first_name TEXT,
+last_name TEXT, 
+year INTEGER);
+
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Richard", "Rodgers", "1962");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Helen", "Hayes", "1977");
+INSERT into EGOT_Year (first_name, last_name, year)
+    VALUES ("Rita", "Moreno", "1977");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("John", "Gielgud", "1991");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Audrey", "Hepburn", "1994");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Marvin", "Hamlisch", "1995");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Johnathan", "Tunick", "1997"); 
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Mel", "Brooks", "2001");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Mike", "Nichols", "2001");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Whoopi", "Goldberg", "2002"); 
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Scott", "Rudin", "2012");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Robert", "Lopez", "2014");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Andrew Lloyd", "Weber", "2018");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Tim", "Rice", "2018");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("John","Legend", "2018");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Alan", "Menken", "2020");
+INSERT into EGOT_Year (first_name, last_name, year) 
+    VALUES ("Jennifer", "Hudson", "2020"); 
+    
+
+CREATE table Emmy (id INTEGER PRIMARY KEY,
+title TEXT, 
+award TEXT,
+emmy_year INTEGER);
+
+*/Create a table of when EGOT winners won their Emmy or first Emmy, what project they won for, and the title of the win*/
+
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (1, "Winston Churchill: The Valiant Years", "Outstanding Achievement in Original Music Composed ", "1962");
+
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (2, "Schlitz Playhouse of Stars", "Best Actress", "1953");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (3, "The Muppet Show", "Outstanding Continuing or Single Performance by a Supporting Actress in Variety or Music ", "1977");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (4, "Summer's Lease", "Outstanding Lead Actor in a Miniseries or Special ", "1991");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (5, "Gardens if the World with Audrey Hepburn", "Outstanding Individual Achievement, Informational Programming  ", "1993");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (6, "Barbara: The Concert","1995: Outstanding Individual Achievement in Music Direction  ", "1995");  
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (7, "Night of 100 Stars","1995: Outstanding Achievement in Music Direction", "1982");  
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (8, "The Sid Caesar, Imogene Coca, Carl Reiner, Howard Morris Special","Outstanding Writing Achievement in Variety ", "1967");  
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (9, "Wit","Outstanding Directing for a Miniseries, Movie or a Special", "2001");  
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (10, "Beyond Tara: The Extraordinary Life of Hattie McDaniel","Outstanding Special Class Special", "2002");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (11, "He Makes Me Feel Like Dancin","Outstanding Children's Program", "1984");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (12, "Wanda Vision: Agatha All Along","Outstanding Original Music and Lyrics", "2021");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (13, "Jesus Christ Superstar Live in Concert","Outstanding Variety Special", "2018");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (14, "Jesus Christ Superstar Live in Concert","Outstanding Variety Special", "2018");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (15, "Jesus Christ Superstar Live in Concert","Outstanding Variety Special", "2018");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (16, "Rapunzel's Tangled Adventures: Waiting in the Wings","Outstanding Original Song in a Children's, Young Adult or Animated Program", "2020");
+INSERT into Emmy (id, title, award, emmy_year) 
+    VALUES (17, "Baba Yaga","Outstanding Interactive Media for a Daytime Program", "2021");
+    
+CREATE table Grammy (id INTEGER PRIMARY KEY,
+title TEXT, 
+award TEXT,
+grammy_year INTEGER);
+
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (1, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (2, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (3, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (4, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (5, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (6, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (7, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (8, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (9, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (10, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (11, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (12, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (13, "x","y", "z");   
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (14, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (15, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (16, "x","y", "z");
+INSERT into grammy (id, title, award, grammy_year) 
+    VALUES (17, "x","y", "z");
+
+
+
+CREATE table Academy (id INTEGER PRIMARY KEY,
+title TEXT, 
+award TEXT,
+academy_year INTEGER);
+
+INSERT into Academy (id, title, award, academy_year) 
+    VALUES (1, "x","y", "z");
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (2, "x","y", "z");
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (3, "x","y", "z");
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (4, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (5, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (6, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (7, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (8, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (9, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (10, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (11, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (12, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (13, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (14, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (15, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (16, "x","y", "z"); 
+INSERT into academy (id, title, award, academy_year) 
+    VALUES (17, "x","y", "z"); 
+
+CREATE table Tony (id INTEGER PRIMARY KEY,
+title TEXT, 
+award TEXT,
+tony_year INTEGER);
+
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (1, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (2, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (3, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (4, "x","y", "z");
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (5, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (6, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (7, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (8, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (9, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (10, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (11, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (12, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (13, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (14, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (15, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (16, "x","y", "z"); 
+INSERT into Tony(id, title, award, Tony_year) 
+    VALUES (17, "x","y", "z"); 
+
