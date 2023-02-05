@@ -90,41 +90,39 @@ award TEXT,
 grammy_year INTEGER);
 
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (1, "x","y", "z");
+    VALUES (3, "Great American Documents","Best Spoken Word Recording", "1977");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (2, "x","y", "z");
+    VALUES (2, "The Electric Company","Best Recording for Children", "1972");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (3, "x","y", "z");
+    VALUES (1, "The Sound of Music","Best Show Album", "1960");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (4, "x","y", "z");
+    VALUES (4, "Ages of Man","Best Spoken Word, Documentary, or Drama Recording", "1979");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (5, "x","y", "z");
+    VALUES (5, "Audrey Hepburn's Enchanted Tales","Best Spoken Word Album for Children", "1994");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (6, "x","y", "z");
+    VALUES (6, "The Way We Were","Song of the Year", "1974");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (7, "x","y", "z");
+    VALUES (7, "No One is Along","Best Instrumental Arrangement in Music Direction", "1988");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (8, "x","y", "z");
+    VALUES (8, "The 2000 Year Old Man in the Year 2000","Best Spoken Comedy Album", "1998");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (9, "x","y", "z");
+    VALUES (9, "An Evening with Mike Nichols and Elaine May","Best Comedy Performance", "1961");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (10, "x","y", "z");
+    VALUES (10, "Whoopi Goldberg","Best Comedy Album", "1986");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (11, "x","y", "z");
+    VALUES (11, "The Book of Mormon","Best Musical Theater Album", "2012");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (12, "x","y", "z");
+    VALUES (12, "The Book of Mormon","Best Musical Theater Album", "2012");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (13, "x","y", "z");   
+    VALUES (13, "Evita","Best Cast Show Album", "1980");   
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (14, "x","y", "z");
+    VALUES (14, "Evita","Best Cast Show Album", "1980");
 INSERT into grammy (id, title, award, grammy_year) 
-    VALUES (15, "x","y", "z");
+    VALUES (15,"Best New Artist", "2006");
 INSERT into grammy (id, title, award, grammy_year) 
     VALUES (16, "x","y", "z");
 INSERT into grammy (id, title, award, grammy_year) 
     VALUES (17, "x","y", "z");
-
-
 
 CREATE table Academy (id INTEGER PRIMARY KEY,
 title TEXT, 
