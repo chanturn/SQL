@@ -1,0 +1,45 @@
+
+--Make a table for a Travel App to help users keep track of their travel details
+CREATE TABLE travel_app (
+id INTEGER PRIMARY KEY
+, user_id INTEGER
+,arrival_date INTEGER
+,depart_date INTEGER
+, destination_city TEXT
+, transportation TEXT
+,accommodation TEXT
+, price INTEGER); 
+
+INSERT INTO travel_app (user_id, arrival_date,depart_date, destination_city , transportation, accommodation, price)
+VALUES (1, "2023-03-03","2023-07-03","Las Vegas", "Flight", "Hotel", "650");
+INSERT INTO travel_app (user_id, arrival_date,depart_date, destination_city , transportation, accommodation, price)
+VALUES (3, "2023-03-07","2023-05-07","Madison", "Car", "Cabin", "320");
+INSERT INTO travel_app (user_id, arrival_date,depart_date, destination_city , transportation, accommodation, price)
+VALUES (2, "2023-18-06","2023-20-06","Portland", "Flight", "Hotel", "800");
+INSERT INTO travel_app (user_id, arrival_date,depart_date, destination_city, transportation, accommodation, price)
+VALUES (1, "2023-21-11","2023-24-11","Chicago", "Train", "Airbnb", "415");
+
+SELECT * FROM travel_app;
+
+
+
+BEGIN TRANSACTION;
+UPDATE travel_app SET accommodation = "Airbnb" WHERE id="3";
+COMMIT; 
+
+BEGIN TRANSACTION;
+DELETE FROM travel_app WHERE id="1";
+COMMIT;
+
+SELECT * FROM travel_app;
+
+ALTER TABLE travel_app ADD destination_state TEXT default unknown; 
+
+
+SELECT * FROM travel_app;
+
+BEGIN TRANSACTION;
+UPDATE travel_app SET destination_state = "IL" WHERE id="4";
+COMMIT; 
+
+SELECT * FROM travel_app;
