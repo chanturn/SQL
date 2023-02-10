@@ -1,0 +1,48 @@
+SELECT * FROM BIT_DB0.customers LIMIT 20;
+SELECT * FROM BIT_DB0.JanSales lIMIT 20;
+
+SELECT * FROM BIT_DB0.customers
+WHERE length(order_id)= 6
+AND order_id <> "Order ID";
+
+SELECT * FROM BIT_DB0.JanSales;
+
+SELECT COUNT(Product)
+FROM BIT_DB0.JanSales 
+WHERE length(orderID)=6
+AND orderID <> "";
+
+SELECT COUNT(Product), Product
+FROM BIT_DB0.JanSales 
+WHERE length(orderID)=6
+AND orderID <> ""
+GROUP BY Product;
+
+SELECT * FROM BIT_DB0.FebSales; 
+
+SELECT customers.acctnum
+FROM BIT_DB0.FebSales
+INNER JOIN customers
+ON FebSales.orderID = customers.order_id; 
+
+SELECT orderID, Price, Product 
+FROM BIT_DB0.JanSales
+WHERE length(orderID)=6
+AND orderID <> ""
+ORDER BY Price;
+
+SELECT SUM(Price*quantity) Revenue
+FROM BIT_DB0.JanSales
+WHERE length(orderID)=6
+AND orderID <> ""
+ORDER BY Price;
+
+SELECT product, quantity, SUM(Price*quantity) Revenue
+FROM BIT_DB0.FebSales
+WHERE location = "548 Lincoln St, Seattle, WA 98101";
+
+SELECT COUNT(order_id), AVG(Quantity*Price)
+FROM BIT_DB0.customers 
+JOIN BIT_DB0.FebSales
+ON customers.order_id= FebSales.orderID 
+WHERE quantity >2
