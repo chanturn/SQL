@@ -1,0 +1,48 @@
+
+
+-- How many orders where placed in January? Filter out blank order ID 
+SELECT COUNT(Product)
+FROM BIT_DB0.JanSales 
+WHERE length(orderID)=6
+AND orderID <> "";
+
+-- How many iPhone were ordered in January?
+SELECT COUNT(Product),Product
+FROM BIT_DB0.JanSales
+WHERE Product = "iPhone"
+AND length(orderID)=6
+AND orderID <> "";
+
+-- What are the order numbers from customers that ordered in Feb?
+SELECT customers.acctnum, customers.order_id
+FROM BIT_DB0.customers 
+LEFT JOIN BIT_DB0.FebSales
+ON customers.order_id= FebSales.orderID;
+
+-- What is the cheapest item and its price that was sold in Jan?
+SELECT product, price
+FROM BIT_DB0.JanSales
+ORDER BY price;
+
+--What is the Jan sales revenue?
+SELECT SUM(Price*quantity) Revenue
+FROM BIT_DB0.JanSales
+WHERE length(orderID)=6
+AND orderID <> "";
+
+-What are the products, quantity and revenue that were shipped to 548 Lincoln St, Seattle, WA 98101?
+SELECT product, quantity, SUM(Price*quantity) Revenue
+FROM BIT_DB0.FebSales
+WHERE location = "548 Lincoln St, Seattle, WA 98101";
+
+-How many customers ordered more than 2 products in Feb and what was the avg those customers spent?
+
+SELECT
+count(distinct customers.acctnum), 
+avg(quantity*price)
+FROM BIT_DB0.FebSales Feb
+LEFT JOIN BIT_DB0.customers 
+ON FEB.orderid=customers.order_id
+WHERE Feb.Quantity>2
+AND length(orderid) = 6 
+AND orderid <> 'Order ID'
