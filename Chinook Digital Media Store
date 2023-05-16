@@ -1,0 +1,68 @@
+SELECT * 
+FROM chinook.customers
+LIMIT 50;
+
+SELECT FirstName, LastName, CustomerID, Country 
+FROM customers
+WHERE Country <> 'USA';
+
+SELECT *
+FROM customers
+WHERE Country = 'Brazil';
+
+SELECT c.FirstName, c.LastName, i.invoiceID, i.invoicedate, i.billingcountry
+FROM customers as c, invoices as i
+WHERE c.customerID= i.customerID AND i.billingcountry= 'Brazil';
+
+SELECT employeeID, title from employees where title LIKE 'sales%agent';
+
+SELECT DISTINCT billingcountry FROM invoices;
+
+SELECT e.firstname, e.lastname,i.invoiceID
+FROM invoices as i, customers as c, employees as e
+WHERE i.customerID=c.customerID AND c.supportrepID=e.employeeID AND e.title LIKE 'sales%agent'
+GROUP BY e.firstname, e.lastname; 
+
+SELECT COUNT(invoiceID) 
+FROM invoices
+WHERE invoicedate LIKE '2009%';
+
+SELECT SUM(s.unitprice*s.quantity)
+FROM invoices as i, invoice_items as s
+WHERE i.invoiceID= s.invoiceID AND invoicedate LIKE '2009%';
+
+SELECT t.name, s.invoiceID
+FROM tracks as t, invoice_items as s
+WHERE t.trackID= s.trackID
+GROUP BY s.invoiceID; 
+
+
+SELECT t.name as track_name, s.invoiceID, a.name as artistname
+FROM tracks as t, invoice_items as s, artists as a, albums as b
+WHERE t.trackID= s.trackID AND t.albumID= b.albumID AND b.artistID= a.artistID
+GROUP BY s.invoiceID;
+
+SELECT t.name as trackname, m.name as mediatype, g.name as genre, a.title as albumtitle
+FROM tracks as t, media_types as m, genres as g, albums as a
+WHERE t.mediatypeid= m.mediatypeid AND t.genreid= g.genreid AND t.albumid=a.albumid; 
+
+SELECT COUNT(invoiceID), e.employeeID 
+FROM employees as e, customers as c, invoices as i
+WHERE e.employeeID= c.supportrepID AND c.customerID= i.customerID AND e.title LIKE 'sales%agent'
+GROUP BY e.employeeID;
+
+
+SELECT SUM(unitprice*quantity) as totalsales, e.employeeID 
+FROM employees as e, customers as c, invoices as i, invoice_items as s
+WHERE e.employeeID= c.supportrepID AND c.customerID= i.customerID AND e.title LIKE 'sales%agent'
+GROUP BY e.employeeID;
+
+SELECT SUM(unitprice*quantity) totalsales, e.employeeID, e.firstname, e.lastname
+FROM employees as e, customers as c, invoices as i, invoice_items as s
+WHERE e.employeeID= c.supportrepID AND c.customerID= i.customerID AND e.title LIKE 'sales%agent' AND i.invoicedate LIKE '2009%'
+GROUP BY e.employeeID, e.firstname, e.lastname;
+
+SELECT MAX(totalsales),  e.employeeID, e.firstname, e.lastname FROM (SELECT SUM(unitprice*quantity) totalsales, e.employeeID, e.firstname, e.lastname
+FROM employees as e, customers as c, invoices as i, invoice_items as s
+WHERE e.employeeID= c.supportrepID AND c.customerID= i.customerID AND e.title LIKE 'sales%agent' AND i.invoicedate LIKE '2009%'
+GROUP BY e.employeeID, e.firstname, e.lastname);
