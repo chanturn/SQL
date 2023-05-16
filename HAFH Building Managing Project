@@ -79,3 +79,99 @@ GROUP BY
 	mfname, mlname, mbdate, msalary; -- this is join statement that displays the first and last name, birthdate, salary, and number of buildings for manager whose salary is more than 55000
 
 
+
+--5.2.11
+SELECT 
+	a.buildingID, a.aptno
+FROM 
+	hafh.apartment as a, hafh.corpclient as c
+WHERE 
+	a.ccid=c.ccid AND 
+	c.ccname= 'WindyCT'; 
+
+
+--5.2.12
+SELECT DISTINCT
+	i.insID, i.insName
+FROM
+	Hafh.inspector as i, hafh.inspecting as g
+WHERE
+	i.insID= g.insID AND 
+	g.Datenext > ‘4.2.2020’
+
+
+--5.2.13 
+SELECT 
+	m.managerID, m.mfname, m.mlname, m.msalary
+FROM
+	Hafh.manager as m
+WHERE
+	msalary > (SELECT AVG(msalary) FROM hafh.manager)
+
+
+
+--5.2.14 
+SELECT m.managerID, m.mfname, m.mlname, COUNT(*)
+	FROM hafh.manager as m, hafh.building as b
+	WHERE 
+	 m.managerID=b.bmanagerID
+GROUP BY
+m.managerID, m.mfname, m.mlname;
+
+
+
+--5.2.15
+
+SELECT m.managerID, m.mfname, m.mlname, COUNT(*)
+FROM hafh.manager as m, hafh.building as b
+WHERE 
+	 m.managerID=b.bmanagerID
+GROUP BY
+m.managerID, m.mfname, m.mlname
+HAVING 
+	COUNT(*) > 1;
+
+
+--5.2.16 
+
+SELECT 
+S.SMemberID, SMemberName, COUNT(*) NoAptsCleaned
+FROM hafh.staffmember as s, hafh.cleaning as c
+WHERE s.SMemberID= c.SMemberID
+GROUP BY S.SMemberID, SMemberName;
+
+
+
+--5.2.17 
+
+SELECT DISTINCT
+S.SMemberID, S.SMemberName
+FROM hafh.staffmember as s, hafh.cleaning as c, hafh.apartment as a, hafh.corpclient as p
+WHERE 
+s.SMemberID = c.SMemberID AND
+c.BuildingID = a.BuildingID AND 
+p.CCLocation= 'Chicago'
+GROUP BY S.SMemberID, S.SMemberName;
+
+
+--5.2.18
+SELECT c.CCName, c.CCIDReferredBy
+FROM hafh.corpclient as c, hafh.corpclient as r
+WHERE 
+c.ccidreferredby=r.ccid AND
+r.CCIndustry= 'Music';
+
+--5.2.19 
+
+SELECT buildingID, aptno, anoofbedrooms FROM hafh.apartment as a 
+FROM a.ccid IS NULL
+
+--5.2.20 
+
+SELECT 
+m.managerID, m.mfname, m.mlname, m.msalary ,m.mbonus
+FROM 
+Hafh.manager as m
+WHERE
+M.msalary + COALESCE(mbonus, 0) =
+(SELECT MIN (m.msalary+COALESCE(m.bonus,0)) FROM hafh.manager as m);
