@@ -105,4 +105,170 @@ Where
 	s.storeID= t.storeID
 	AND
 	t.storeZIP= '60600'; --This is a join statement to display the items sold in the area code '60600'
+	
+* Chandler Turner, HW4 */ 
+/* setting the database to ZAGI */ set search_path to zagi; 
+
+
+/* Query 5.1.12 */  
+
+SELECT DISTINCT
+	p.ProductID, p.ProductName, p.ProductPrice
+FROM
+	zagi.Product as p, zagi.vendor as v,  zagi.includes as i,zagi. salestransaction as s, zagi.store as t, zagi.region as r
+WHERE
+	p.vendorID=v.vendorID
+	AND
+	p.ProductID=i.ProductID
+	AND
+	i.TID= s.TID
+	AND
+	s.StoreID= t.storeID
+	AND
+	v.vendorName= 'Pacifica Gear'
+	AND
+	r.regionName = 'Tristate'
+ORDER BY
+p.ProductID; -- Query that displays the ProductID, ProductName, and ProductPrice for Products whose Vendor Name is Pacifica Gear that were sold in the region whose Region Name is Tristate. 
+
+
+/* Query 5.1.13 */ 
+
+SELECT 
+	s.TID, c.CustomerName, s.TDate
+FROM 
+	zagi.salestransaction as s, zagi.customer as c, zagi.product as p,  zagi.includes as i
+WHERE 
+  p.ProductID= i.ProductID
+  AND
+  i.TID= s.TID
+  AND
+  s.CustomerID= c.CustomerID
+  AND
+  p.ProductName= 'Easy Boot';-- Query that shows the TID, CustomerName, and Transaction Date for sales transactions involving a customer buying East Boot
+
+
+/* Query 5.1.14 */ 
+
+SELECT 
+	r.RegionID, r.RegionName, COUNT(*)
+FROM 
+	zagi.Region as r, zagi.Store as s
+WHERE 
+	r.RegionID= s.RegionID
+GROUP BY
+  r.RegionID; --Query to display the RegionID, Region Name, and number of stores in for all regions.
+
+	
+
+/* Query 5.1.15 */ For each product category, display the CategoryID, CategoryName, and average price of a product in the category.
+
+SELECT 
+	c.CategoryID, c.CategoryName, AVG(p.ProductPrice)
+FROM 
+	zagi.product p, zagi.category c
+WHERE 
+	p.CategoryID= c.CategoryID
+GROUP BY
+	c.CategoryID, c.CategoryName; --Query to show the CategoryID, CategoryName, and average price of a product in the category grouping by categoryID and category name
+
+
+
+
+/* Query 5.1.16 */ 
+
+SELECT 
+	p.CategoryID, SUM(i.quantity)
+FROM
+	zagi.Product as p,zagi. includes as i
+WHERE
+	p.productID= i.ProductID
+GROUP BY
+	p.CategoryID; -- Query that displays the CategoryID and the total number of items purchased in the category grouping by categoryID.
+
+
+/* Query 5.1.17 */ 
+SELECT 
+	r.RegionID, r.RegionName, SUM(p.ProductPrice*i.quantity) AmountSpent
+FROM 
+	zagi.Product as p, zagi.Region as r, zagi.includes as i, zagi.salestransaction as s, zagi. store as t
+WHERE 
+	p.ProductID= i.ProductID
+	AND
+	i.TID= s.TID
+	AND
+	s.StoreID= t.StoreID
+	AND 
+	t.RegionID= r.RegionID
+GROUP BY
+	r.RegionID, r.regionname; --This displays the RegionID, RegionName, and the total amount of sales (in dollars) in the region for all regions. Alo the total amount of sales as AmountSpent grouping by regionID and regionname.
+
+
+/* Query 5.1.18 */ 
+
+SELECT
+	SUM(i.quantity), i.tid
+FROM 
+	zagi.includes as i
+GROUP BY
+i.tid
+HAVING 
+	SUM(i.quantity) > 5; -- This shows the TID and the total number of itemsf or all sales transactions whose totale sales is more than 5.
+
+
+
+/* Query 5.1.19 */ 
+
+
+SELECT
+	v.vendorID, v.vendorname, SUM (p.productprice*i.quantity) TotalSales
+FROM
+	zagi.vendor as v, zagi.includes as i, zagi.product as p
+WHERE
+	v.vendorID= p.vendorID AND
+	i.ProductID= p.ProductID
+GROUP BY
+	v.vendorID, v.vendorname
+HAVING
+	SUM (p.productprice*i.quantity) > 700; --Query shows the VendorID, VendorName, and total amount of sales in dollars whose total sales is more than 700.
+
+/* Query 5.1.20 */ 
+SELECT 
+	p.ProductID, p.ProductName, p.ProductPrice
+FROM 
+	zagi.Product as p
+WHERE p.productprice= (SELECT MIN(p.productprice) FROM zagi.product as p)
+; -- This query displays the ProductID, ProductName, and ProductPrice for the cheapest product.
+
+
+
+/* Query 5.1.21 */E5.1.21 
+
+SELECT 
+	p.ProductID, p.ProductName, v.VendorName
+FROM 
+	zagi.Product as p, zagi.Vendor as v
+WHERE 
+	p.VendorID= v.VendorID
+	AND
+  p.ProductPrice< (SELECT 
+	AVG(p.ProductPrice)
+	FROM 
+	Product as p); --Show the ProductID, ProductName, and VendorName for products whose price is below the average price of all products.
+ 
+
+
+/* Query 5.1.22  /* 
+
+SELECT 
+	p.ProductID, p.ProductName
+FROM 
+	zagi.Product as p
+WHERE 
+	(SELECT 
+		COUNT(s.tid)
+	FROM 	
+		salestransaction as s
+GROUP by  
+  ProductID) >2; -Displays  the ProductID and ProductName of the product for the products whose total quantity sold in all transactions is greater than 2.
 
