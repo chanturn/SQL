@@ -1,0 +1,81 @@
+/*5.2.1*/
+
+SELECT *
+FROM
+Hafh.staffmember; --Displays all the records from the staffmember table 
+
+/*5.2.2*/
+SELECT bnooffloors, buildingid
+FROM hafh.building; --Shows the number of floors per building and building ID for all buildings in the hafh database
+
+/*5.2.3*/
+
+SELECT
+	ccid, ccname, ccindustry
+FROM
+	hafh.corpclient
+ORDER BY
+	Ccname; --This query displays the corporate client id, name, and industry for ordered by client name alphabetically
+
+/*5.2.4*/
+
+SELECT *
+	
+FROM 
+	hafh.staffmember
+WHERE smembername LIKE 'B%' -Displays all the records in the staffmember table whose member name starts with B
+
+/*5.2.5*/ 
+
+SELECT buildingID, aptno, anoofbedrooms
+FROM
+hafh.apartment
+WHERE 
+	anoofbedrooms >1; --this query shows the building ID, number of apartments, and number of bedrooms for the apartments in the database
+
+/*5.2.6*/
+
+SELECT COUNT(*)
+FROM
+	hafh.building 
+WHERE
+	bnooffloors = 4; --this query shows how many hafh building has exactly 4 floors
+
+/*5.2.7*/
+
+SELECT SUM (msalary) TotalSalary, SUM (mbonus) totalbonus 
+FROM
+hafh.manager; --displays the total amount hafh spends on manager salaries and bonuses 
+
+/*5.2.8*/
+
+
+SELECT managerID, mfname, mlname, msalary, mbonus
+FROM
+Hafh.manager
+WHERE
+msalary > 50000 AND mbonus >1000; --displays the ID, first and last name, salary, and bonus of the managers that have a salary over 50000 and bonus over 1000
+
+/*5.2.9*/
+
+SELECT 
+	B.buildingid, b.bnooffloors, m.mfname, m.mlname
+FROM 
+	Hafh.building b, hafh.manager m
+WHERE b.bmanagerid=m.managerid; —this is a join statement that displays the buildingid, number of floors, first and last name of the managers for all buildings
+
+
+
+/*5.2.10*/
+
+
+SELECT 
+	mfname, mlname, mbdate, msalary, COUNT(*)
+FROM 
+	hafh.manager m, hafh.building b
+WHERE b.bmanagerid=m.managerid AND
+M.msalary < 55000
+GROUP BY
+	mfname, mlname, mbdate, msalary; -- this is join statement that displays the first and last name, birthdate, salary, and number of buildings for manager whose salary is more than 55000
+
+
